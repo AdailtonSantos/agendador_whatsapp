@@ -9,7 +9,6 @@
 
     <label>Contatos</label>
     <input id="searchContact" type="text" v-model="contact" />
-    {{ selectedContacts }}
     <div class="list">
       <div v-for="contact in filteredContacts" :key="contact.id">
         <input type="checkbox" :id="contact.id" class="contact" v-model="selectedContacts" :value="contact">
@@ -125,7 +124,6 @@ export default {
       try {
         const response = await axios.get(`/contacts`);
         this.contacts = response.data;
-        console.log(this.contacts)
         localStorage.setItem("contacts", JSON.stringify(this.contacts));
       } catch (err) {
         throwError(err.response, this);
