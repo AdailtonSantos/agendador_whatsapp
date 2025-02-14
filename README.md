@@ -4,6 +4,7 @@
 
 - [Docker](https://www.docker.com/get-started) e [Docker Compose](https://docs.docker.com/compose/install/) instalados
 - Node.js (versão recomendada: 20)
+- Evolution API hospedado em algum servidor ou localmente
 
 ## Passo a Passo
 
