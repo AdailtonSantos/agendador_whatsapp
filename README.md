@@ -62,16 +62,42 @@ docker-compose up -d
 
 ### 4. Acessando o sistema
 Após subir os containers, o sistema estará disponível nas portas configuradas.
-Frontend: localhost:80
+Frontend: localhost:82
 Backend: localhost:8081
 
-### 5. Logs e Debugging
+### 5. Develop
+Para um ambiente de desenvolvimento do front, é necessário subir apenas os containers do Back e do Mysql.
+Para isso, basta comentar o bloco do nginx no docker-compose.yml
+Feito isso, basta rodar:
+```sh
+docker compose up
+npm run init
+```
+O Vue estará rodando na porta no localhost:8080 e o back no localhost:8081
+
+### 6. Build
+Para alterações, basta editar os arquivos do Vue e em seguida rodar
+```sh
+npm run build
+```
+Um novo build do frontend será gerado.
+Após isso, rode:
+```sh
+docker compose down
+```
+E depois
+```sh
+docker compose up -d
+```
+Para subir novamente.
+
+### 7. Logs e Debugging
 Para visualizar os logs do serviço, utilize:
 ```sh
 docker-compose logs -f
 ```
 
-### 6. Parando os containers
+### 8. Parando os containers
 Caso precise parar os serviços, utilize:
 ```sh
 docker-compose down
